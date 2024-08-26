@@ -10,7 +10,7 @@ This script identifies and restarts pods in a specified namespace that are consu
 
 #### Usage:
 ```bash
-./restart_pod_high_resource.sh <namespace>
+curl -s https://raw.githubusercontent.com/mhrznamn068/kubernetes-helper-scripts/main/scripts/restart_pod_high_resource.sh | bash -s <namespace>
 ```
 
 ### 2. `top_usage_by_ns.sh`
@@ -19,5 +19,6 @@ This script identifies the namespace's with high resource utilization and output
 
 #### Usage:
 ```bash
-./top_usage_by_ns.sh <cpu>/<memory>
+curl -s https://raw.githubusercontent.com/mhrznamn068/kubernetes-helper-scripts/main/scripts/top_usage_by_ns.sh | bash -s cpu
+curl -s https://raw.githubusercontent.com/mhrznamn068/kubernetes-helper-scripts/main/scripts/top_usage_by_ns.sh | bash -s memory
 ```
