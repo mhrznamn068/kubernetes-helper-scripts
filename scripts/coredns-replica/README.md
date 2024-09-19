@@ -1,5 +1,15 @@
+# CoreDNS Replica Calculator
 
-Where:
+This script calculates the desired number of CoreDNS replicas based on the number of CPU cores and nodes in a Kubernetes cluster. The calculation follows a formula that takes into account both CPU cores and node distribution.
+
+## Formula
+
+The script uses the following formula to calculate the required number of CoreDNS replicas:
+```bash
+replicas = max( ceil( cores / coresPerReplica ), ceil( nodes / nodesPerReplica ) )
+```
+
+**Where:**
 - `cores`: Total number of CPU cores in the cluster.
 - `coresPerReplica`: Desired number of cores per CoreDNS replica.
 - `nodes`: Total number of nodes in the cluster (including master and worker nodes).
