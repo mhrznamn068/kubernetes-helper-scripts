@@ -22,3 +22,12 @@ This script identifies the namespace's with high resource utilization and output
 curl -s https://raw.githubusercontent.com/mhrznamn068/kubernetes-helper-scripts/main/scripts/top_usage_by_ns.sh | bash -s cpu
 curl -s https://raw.githubusercontent.com/mhrznamn068/kubernetes-helper-scripts/main/scripts/top_usage_by_ns.sh | bash -s memory
 ```
+
+### 3. `top_usage_by_service.sh`
+
+This script identifies the services with high resource utilization and outputs the total sum of the resource consumption.
+
+#### Usage:
+```bash
+curl -s https://raw.githubusercontent.com/mhrznamn068/kubernetes-helper-scripts/main/scripts/top_usage_by_service.sh | bash -s <namespace>
+```
