@@ -2,13 +2,13 @@
 
 get_cpuusage() {
     local NAMESPACE=$1
-    usage=$(kubectl top pods -n $NAMESPACE | awk '{print $2}' | grep -v CPU | tr -d 'm' | paste -sd+  | bc)
+    usage=$(kubectl top pods -n $NAMESPACE | awk '{print $2}' | grep -v CPU | tr -d 'm' | tr '\n' '+' | sed 's/+$//' | bc)
     echo "$NAMESPACE  ${usage}m"
 }
 
 get_memusage() {
     local NAMESPACE=$1
-    memusage=$(kubectl top pods -n $NAMESPACE | awk '{print $3}' | grep -v MEM | tr -d 'Mi' | paste -sd+  | bc)
+    memusage=$(kubectl top pods -n $NAMESPACE | awk '{print $3}' | grep -v MEM | tr -d 'Mi' | tr '\n' '+' | sed 's/+$//' | bc)
     echo "$NAMESPACE  ${memusage}Mi"
 }
 
